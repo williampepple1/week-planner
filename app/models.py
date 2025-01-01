@@ -1,17 +1,15 @@
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
-from sqlalchemy.ext.declarative import declarative_base
+from app.database import Base  # Import the Base from database.py
 from datetime import datetime, timedelta
 
-Base = declarative_base()
-
-class User(Base):
+class User(Base):  # Use the same Base
     __tablename__ = "users"
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String, unique=True, index=True)
     hashed_password = Column(String, nullable=False)
 
-class Activity(Base):
+class Activity(Base):  # Use the same Base
     __tablename__ = "activities"
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, nullable=False)

@@ -9,6 +9,7 @@ class UserCreate(UserBase):
 
 class User(UserBase):
     id: int
+    hashed_password: str  # Hashed password
 
     class Config:
         from_attributes = True
